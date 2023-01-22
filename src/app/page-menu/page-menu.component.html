@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let card of cards; let i = index">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{card[0]}}</mat-card-title>
+                </mat-card-header>
+                <img class="image" mat-card-image src={{card[1]}} style="max-width: 100%; height: auto;" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <button (click)="showInputField(i)" style="width:100%" mat-menu-item>{{card[2]}}</button>
+                    <div class="example-form" *ngIf="checkInputField(i)">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>{{card[3]}}</mat-label>
+                            <mat-icon (click)="submitInput(i)" matPrefix>search</mat-icon>
+                            <input formControlName={{card[5]}} matInput placeholder={{card[4]}}>
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
