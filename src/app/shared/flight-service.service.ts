@@ -17,4 +17,12 @@ export class FlightServiceService {
     return this.http.get(fullUrl,{params: params});
   }
 
+  public getFlights(fromDeparture:any, toDestination:any){
+    let params = new HttpParams();
+    params = params.append("fromDeparture",fromDeparture);
+    params = params.append("toDestination",toDestination);
+    let fullUrl = this.url + "/flights/getByAirports";
+    return this.http.get(fullUrl,{params: params});
+  }
+
 }

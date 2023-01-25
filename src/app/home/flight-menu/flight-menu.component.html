@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <div class="inputs">
+        <mat-form-field class="input1">
+            <mat-label>From</mat-label>
+            <input class="destination" formControlName="from" matInput placeholder="ex. ATH" type="text">
+        </mat-form-field>
+        <mat-icon class="airport">connecting_airports</mat-icon>
+        <mat-form-field class="input2">
+            <mat-label>To</mat-label>
+            <input formControlName="to" matInput placeholder="ex. JFK" type="text">
+        </mat-form-field>
+        <button (click)="checkValidity()" mat-mini-fab class="search" color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+    <div *ngIf="hasError" style="color:red">
+        {{errorMessage}}
+    </div>
+</form>

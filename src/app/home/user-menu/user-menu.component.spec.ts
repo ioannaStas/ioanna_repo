@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageMenuComponent } from './page-menu.component';
+import { UserMenuComponent } from './user-menu.component';
 
-describe('PageMenuComponent', () => {
-  let component: PageMenuComponent;
-  let fixture: ComponentFixture<PageMenuComponent>;
+describe('UserMenuComponent', () => {
+  let component: UserMenuComponent;
+  let fixture: ComponentFixture<UserMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageMenuComponent ]
+      declarations: [ UserMenuComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageMenuComponent);
+    fixture = TestBed.createComponent(UserMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

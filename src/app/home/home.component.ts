@@ -3,11 +3,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { FlightServiceService } from '../shared/flight-service.service';
 
 @Component({
-  selector: 'app-page-menu',
-  templateUrl: './page-menu.component.html',
-  styleUrls: ['./page-menu.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class PageMenuComponent {
+export class HomeComponent {
 
   form:any = new FormGroup({
     destination: new FormControl(),
@@ -20,13 +20,17 @@ export class PageMenuComponent {
   showUserField:boolean = false;
   
   cards:any = [
-    ["Book a Flight","../../assets/air-india-portable-oxygen-concentrator-policy.jpg","You can see the flight by clicking here","Destination","ex. ATH","destination"],
+    ["See all flights","../../assets/air-india-portable-oxygen-concentrator-policy.jpg","You can see the flight by clicking here","Destination","ex. ATH","destination"],
     ["See my Tickets","../../assets/istockphoto-1285337858-612x612.jpg","You can book a ticket by clicking here","id","4","ticketid"],
     ["Check profile","../../assets/istockphoto-1356417207-612x612.jpg","You can see your profile info by clicking here","Username","death","username"]
   ];
  
   public constructor(private formBuilder: FormBuilder, 
     private flightService:FlightServiceService) {}
+
+    ngOnInit(){
+      console.log("aaaaa");
+    }
 
   public showInputField(i:any){
     if(i===0){

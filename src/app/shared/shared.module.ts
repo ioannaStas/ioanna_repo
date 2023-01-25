@@ -12,38 +12,48 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [
-    HeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    CommonModule,
-    MatMenuModule,
-    MatCardModule
-  ], 
-  exports: [
-    HeaderComponent,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    CommonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatGridListModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        HeaderComponent
+    ],
+    exports: [
+        HeaderComponent,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        CommonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatGridListModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatOptionModule,
+        HttpClientModule
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        CommonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatOptionModule,
+        HttpClientModule,
+        MatGridListModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class SharedModule { }
