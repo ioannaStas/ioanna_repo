@@ -1,1 +1,60 @@
-<p>flight works!</p>
+<div class="parent-container" id="parent">
+    <div *ngIf="flights.length == 0" style="font-size: large; color: red;">
+        Sorry, no flights are available
+    </div>
+    <div *ngIf="bookedFlight" style="color:blueviolet; font-size: larger; font-weight: bolder; padding-top:2em; padding-left: 2em;">
+        Yout flight is booked
+    </div>
+    <div *ngFor="let flight of flights; let j = index" class="card-class">
+        <div style="padding-top: 2em;"></div>
+        <mat-card style="border-width: 1px; border-color: black;">
+            <mat-card-header>
+                <mat-card-title>Flights: {{flight.bookingNumber}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div style="width:100%">
+                    <div style="width:83%;float:left;">
+                        <mat-grid-list cols="4" rowHeight="3.5em">
+                            <mat-grid-tile
+                                *ngFor="let tile of tiles; let i=index;"
+                                [colspan]="tile.cols"
+                                [rowspan]="tile.rows"
+                                [style.background]="tile.color">
+                                <div *ngIf="i==0" fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                                    <div class="departure" fxFlex="33">
+                                        From: {{flight.departurePlace}}
+                                    </div>
+                                    <mat-icon class="departure" fxFlex="33">connecting_airports</mat-icon>
+                                    <div class="departure" fxFlex="33">
+                                        To: {{flight.destination}}
+                                    </div>
+                                </div>
+                                <div *ngIf="i==1" fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                                    <div class="departure" fxFlex="33">
+                                        Departure Time: {{departureTimes[j]}}
+                                    </div>
+                                    <mat-icon class="departure" fxFlex="33">punch_clock</mat-icon>
+                                    <div class="departure" fxFlex="33">
+                                        Arrival Time: {{arrivalTimes[j]}}
+                                    </div>
+                                </div>
+                                <div *ngIf="i==2" fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                                    <mat-icon style="padding-left:1em;" fxFlex="20">calendar_month</mat-icon>
+                                    <div class="departure" fxFlex="80">
+                                        Departure date: {{flight.flightDate}}
+                                    </div>
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                    <div class="button-class">
+                        <button mat-fab extended color="primary" (click)="bookTicket(j)">
+                            <mat-icon>airplanemode_active</mat-icon>
+                            Book now
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    <div>
+</div>

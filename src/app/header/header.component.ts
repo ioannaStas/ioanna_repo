@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  public constructor(){ }
+  public constructor(private router: Router){ }
 
-  options: any = ["Flights", "Tickets", "Users"]
+  logout(){
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("isLoggedIn");
+    let navigationDetails:string[] = ["/"];
+    this.router.navigate(navigationDetails);
+  }
 
 }

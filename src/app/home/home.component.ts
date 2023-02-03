@@ -20,17 +20,13 @@ export class HomeComponent {
   showUserField:boolean = false;
   
   cards:any = [
-    ["See all flights","../../assets/air-india-portable-oxygen-concentrator-policy.jpg","You can see the flight by clicking here","Destination","ex. ATH","destination"],
-    ["See my Tickets","../../assets/istockphoto-1285337858-612x612.jpg","You can book a ticket by clicking here","id","4","ticketid"],
-    ["Check profile","../../assets/istockphoto-1356417207-612x612.jpg","You can see your profile info by clicking here","Username","death","username"]
+    ["Check out our flight options","../../assets/flightphoto.jpg","You can see the flight by clicking here","Destination","ex. ATH","destination"],
+    ["Check out your tickets","../../assets/flighttickets.jpg","You can book a ticket by clicking here","id","4","ticketid"],
+    ["Check out your profile","../../assets/profileicon.jpg","You can see your profile info by clicking here","Username","death","username"]
   ];
  
   public constructor(private formBuilder: FormBuilder, 
     private flightService:FlightServiceService) {}
-
-    ngOnInit(){
-      console.log("aaaaa");
-    }
 
   public showInputField(i:any){
     if(i===0){
@@ -55,15 +51,6 @@ export class HomeComponent {
       return this.showTicketField;
     }
     return this.showUserField;
-  }
-
-  public submitInput(i:any){
-    if(i==0){
-      this.flightService.getFlightByDestination(this.form.controls['destination'].value).subscribe(result=>{
-        this.ticketResult = result;
-        console.log(this.ticketResult);
-      })
-    }
   }
 
 }

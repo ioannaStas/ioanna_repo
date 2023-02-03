@@ -1,13 +1,15 @@
 <form [formGroup]="form">
     <mat-grid-list cols="3" rowHeight="1:1">
         <mat-grid-tile *ngFor="let card of cards; let i = index">
-            <mat-card class="example-card">
+            <mat-card fxFlex="70" class="example-card">
                 <mat-card-header>
                     <mat-card-title>{{card[0]}}</mat-card-title>
                 </mat-card-header>
-                <img class="image" mat-card-image src={{card[1]}} style="max-width: 100%; height: auto;" alt="Photo of a Shiba Inu">
-                <mat-card-content >
+                <img class="image" mat-card-image src={{card[1]}} style="max-width: 100%; height: auto;">
+                <mat-card-content>
                     <app-flight-menu *ngIf="i==0"></app-flight-menu>
+                    <app-ticket-menu *ngIf="i==1"></app-ticket-menu>
+                    <app-user-menu *ngIf="i==2"></app-user-menu>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>

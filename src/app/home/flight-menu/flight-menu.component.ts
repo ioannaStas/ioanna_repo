@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FlightServiceService } from 'src/app/shared/flight-service.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class FlightMenuComponent {
   errorMessage:string = "";
 
   constructor(private fb: FormBuilder,
-    private flightService: FlightServiceService){}
+    private flightService: FlightServiceService,
+    private _router: Router){}
 
   ngOnInit(){
     this.form = this.fb.group({
@@ -23,10 +25,11 @@ export class FlightMenuComponent {
     })
   }
 
-
   public checkFlights(){
-    this.flightService.getFlights(this.form.controls["from"].value, this.form.controls["to"].value).subscribe(result=>{
-      console.log(result);
+    this.flightService.getFlights(this.form.controls["from"].value, this.form.controls["to"].value).subscribe(result =>{
+      let navigationDetails:string[] = ["/flights"];
+      this.flightService.subject.next(result);
+      this._router.navigate(navigationDetails);
     });
   }
 

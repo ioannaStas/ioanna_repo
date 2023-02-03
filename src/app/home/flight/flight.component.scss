@@ -1,0 +1,43 @@
+.card-class{
+    width:80%;
+    border-width: 1px;
+    border-color: black;
+    height:auto;
+}
+
+.parent-container{
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.button-class {
+    display: block;
+    margin-left: auto;
+    /* margin-right: auto; */
+    width: 14%;
+}
+
+.Row {
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+
+.Column{
+    display: table-cell;
+    align-content: center;
+}
+
+.departure {
+    padding-right:1em;
+    font-size: large;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.destination{
+    text-align: center;
+    display: table-cell;
+    font-weight: bolder;
+}

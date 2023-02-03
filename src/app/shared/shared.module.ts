@@ -14,11 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FlightComponent } from '../home/flight/flight.component';
+import { TicketComponent } from '../home/ticket/ticket.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserComponent } from '../home/user/user.component';
+import { LoginService } from './login.service';
 
 
 @NgModule({
     declarations: [
-        HeaderComponent
+        HeaderComponent,
+        FlightComponent,
+        TicketComponent,
+        UserComponent
     ],
     exports: [
         HeaderComponent,
@@ -36,7 +44,11 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         ReactiveFormsModule,
         MatOptionModule,
-        HttpClientModule
+        HttpClientModule,
+        FlightComponent,
+        TicketComponent,
+        FlexLayoutModule,
+        UserComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
         MatGridListModule,
         MatInputModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FlexLayoutModule
     ]
 })
 export class SharedModule { }

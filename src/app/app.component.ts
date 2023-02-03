@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/internal/Subject';
+import { LoginService } from './shared/login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +10,39 @@ import { Subject } from 'rxjs/internal/Subject';
 })
 export class AppComponent {
 
-  router: string;
+  constructor(public _router: Router,
+    private fb: FormBuilder,
+    private loginService:LoginService){}
 
-  constructor(public _router: Router){
-    this.router = _router.url;
-  }
+    form = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl('')
+    });
+  username:any = "";
+  password:any = "";
 
   public loginValid = true;
-  public username = '';
-  public password = '';
+  error:boolean = false;
+  user:any = {};
 
-  private _destroySub$ = new Subject<void>();
-
-  // ngOnInit(){
-  //   console.log("im in")
-  //   let navigationDetails:string[] = ["/home"];
-  //   this._router.navigate(navigationDetails);
-  // }
+  ngOnInit(){
+  }
 
   public onSubmit(){
-    let navigationDetails:string[] = ["/home"];
-    this._router.navigate(navigationDetails);
+    this.loginService.authenticate(this.form.controls.username.value,this.form.controls.password.value).subscribe({
+      next :(result) => {
+        this.loginService.loggedIn.next(true)
+        this.loginService.user.next(result);
+        this.error = false;
+        sessionStorage.setItem("user", JSON.stringify(this.loginService.user.getValue()));
+        sessionStorage.setItem("isLoggedIn", "true");
+        let navigationDetails:string[] = ["/home"];
+        this._router.navigate(navigationDetails);
+      }, 
+      error :() => {
+        this.error = true;
+      }
+      });
   }
 
 }

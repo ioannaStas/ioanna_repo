@@ -1,1 +1,86 @@
-<p>ticket works!</p>
+
+<div *ngIf="ticket!=null; else noTicket" style="padding-top: 2em;">
+    <mat-card class= "checkin">
+        <mat-card-header>
+            <mat-card-title>Enjoy your trip!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="column" style="padding-top: 1em;">
+                <div style="font-size: xx-large;">Ticket info: </div>
+                <div style="height:2em;"></div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Bardcode: </div>
+                    <div fxFlex="50">{{ticket.id}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Price: </div>
+                    <div fxFlex="50">{{ticket.flight.price}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Seat: </div>
+                    <div fxFlex="50">{{ticket.seat}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+            </div>
+            <div fxLayout="column" style="padding-top: 3em;">
+                <div style="font-size: xx-large;">Flight info: </div>
+                <div style="height:2em;"></div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Departure: </div>
+                    <div fxFlex="50">{{ticket.flight.departurePlace}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Destination: </div>
+                    <div fxFlex="50">{{ticket.flight.destination}}</div>
+                    <div fxFlex="30"></div>
+                </div>     
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Departure Date: </div>
+                    <div fxFlex="50">{{ticket.flight.flightDate}}</div>
+                    <div fxFlex="30"></div>
+                </div>       
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Departure Time: </div>
+                    <div fxFlex="50">{{ticket.flight.departureTime}}</div>
+                    <div fxFlex="30"></div>
+                </div>            
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Arrival Time: </div>
+                    <div fxFlex="50">{{ticket.flight.arrivalTime}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+                <div fxLayout="row" style="font-weight: bolder;">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="50">Flight number: </div>
+                    <div fxFlex="50">{{ticket.flight.flightNumber}}</div>
+                    <div fxFlex="30"></div>
+                </div>
+            </div>
+            <div fxLayout="row" style="padding-top: 1em;">
+                <div fxFlex="25"></div>
+                <button fxFlex="20" (click)="checkIn()" [disabled]="ticket.checkedIn" mat-fab extended color="primary">Check-in</button>
+                <div fxFlex="75" fxLayout="row" style="padding-top: 1em;">
+                    <div fxFlex="40" style="font-size: large;">Checked-in: </div>
+                    <mat-icon fxFlex="10" *ngIf="ticket.checkedIn">check_circle</mat-icon>
+                    <mat-icon fxFlex="10" *ngIf="!ticket.checkedIn">cancel</mat-icon>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<ng-template #noTicket>
+    <div  style="color: red; font-size: larger;">
+        No ticket is provided
+    </div>
+</ng-template>

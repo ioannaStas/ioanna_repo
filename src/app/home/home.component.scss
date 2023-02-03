@@ -1,19 +1,9 @@
 .example-card {
-    padding-left: 2%;
-    padding-right: 2%;
-    max-width: 90%;
+    padding-left: 1em;
+    max-width: 30em;
+    padding-right: 1em;
 }
 
 mat-card {
     background: lightblue;
-}
-
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-}
-
-.example-full-width {
-width: 100%;
 }

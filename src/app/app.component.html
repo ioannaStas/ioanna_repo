@@ -17,23 +17,28 @@
 </form> -->
 <app-header *ngIf="_router.url!='/'"></app-header>
 <router-outlet></router-outlet>
-<div class="login" *ngIf="_router.url=='/'">
-  <div class="margin"></div>
-  <mat-card>
-      <mat-card-content>
-          <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
-              <mat-form-field class="example-full-width">
-                  <mat-label>E-mail</mat-label>
-                  <mat-icon matSuffix>account_circle</mat-icon>
-                  <input type="email" matInput placeholder="johndoe@example.com">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                  <mat-label>Password</mat-label>
-                  <input type="password" matInput placeholder="123456789">
-                  <mat-icon matSuffix>vpn_key</mat-icon>
-              </mat-form-field>
-              <button mat-raised-button color="warn">Login</button>
-          </form>
-      </mat-card-content>
-  </mat-card>
-</div>
+<form [formGroup]="form" style="height:100%">
+  <div class="login" *ngIf="_router.url=='/'">
+    <div class="margin"></div>
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <input matInput placeholder="JohnDoe" formControlName="username">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="warn" (click)="onSubmit()">Login</button>
+        </mat-card-content>
+    </mat-card>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div *ngIf="error" style="font-size: larger; font-weight: bolder; color: red;">
+        No user found with those credentials
+      </div>
+    </div>
+  </div>
+</form>

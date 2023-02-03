@@ -1,0 +1,19 @@
+.checkin{
+    max-width: 40em;
+    height:auto;
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
+}
+
+.mdc-card__media{
+    max-height:10em;
+    max-width: 10em;
+}
+
+mat-card {
+    background: lightblue;
+}

@@ -1,1 +1,14 @@
-<p>ticket-menu works!</p>
+<form [formGroup]="form">
+    <div class="inputs">
+        <mat-form-field class="input1">
+            <mat-label>Ticket number</mat-label>
+            <input class="+" formControlName="ticketNumber" matInput placeholder="ex. A3205" type="text">
+        </mat-form-field>
+        <button (click)="checkValidity()" mat-mini-fab class="search" color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+    <div *ngIf="hasError" style="color:red">
+        {{errorMessage}}
+    </div>
+</form>

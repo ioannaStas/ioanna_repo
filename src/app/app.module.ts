@@ -5,17 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { FlightComponent } from './home/flight/flight.component';
-import { TicketComponent } from './home/ticket/ticket.component';
-import { UserComponent } from './home/user/user.component';
 import { HomeModule } from './home/home.module';
+import { CommonModule } from '@angular/common';
+import { LoginService } from './shared/login.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FlightComponent,
-    TicketComponent,
-    UserComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +19,8 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     SharedModule,
     HomeModule
-  ],
-  providers: [],
+  ],exports:[CommonModule],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
